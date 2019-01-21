@@ -55,7 +55,6 @@ function consoleTextBox(options, ...textLines){
     console.log(topBorder);
     for(let i = 0; i < options.topBottomBuffer; i++){
         console.log(fillLine);
-
     }
     textLines.forEach(t => console.log(genLine(t, maxLength)));
     for(let i = 0; i < options.topBottomBuffer; i++){
