@@ -18,11 +18,22 @@ function isObject (value) {
     return value && typeof value === 'object' && value.constructor === Object;
 }
 
+/**
+ *
+ * @param {(object || string)} options
+ * @param {number} options.sideBuffer
+ * @param {number} options.topBottomBuffer
+ * @param {string} textLines
+ */
 function consoleTextBox(options, ...textLines){
     if(!isObject(options)){
         textLines = Object.values(arguments);
-        options = {};
     }
+    options = {
+        sideBuffer:  options.sideBuffer || options.sideBuffer === 0 ? options.sideBuffer : 3,
+        topBottomBuffer:  options.topBottomBuffer || options.topBottomBuffer === 0 ? options.topBottomBuffer : 1
+    };
+
     // Compensate for any new lines and `back tick` syntax
     for(let t = 0; t  < textLines.length; t++){
         const splitOnNewLine = textLines[t]
@@ -33,7 +44,7 @@ function consoleTextBox(options, ...textLines){
         t += splitOnNewLine.length - 1;
     }
 
-    const sideBuffer = options.sideBuffer || options.sideBuffer === 0 ? options.sideBuffer : 3;
+    const sideBuffer = options.sideBuffer;
     const maxTextLength = textLines.reduce((p, c) => p > c.length ? p : c.length ,0);
     const maxLength = maxTextLength + sideBuffer * 2;
 
@@ -42,10 +53,16 @@ function consoleTextBox(options, ...textLines){
     const bottomBorder = bottomLeft + repeatFill(maxLength, top) + bottomRight;
 
     console.log(topBorder);
-    console.log(fillLine);
+    for(let i = 0; i < options.topBottomBuffer; i++){
+        console.log(fillLine);
+
+    }
     textLines.forEach(t => console.log(genLine(t, maxLength)));
-    console.log(fillLine);
+    for(let i = 0; i < options.topBottomBuffer; i++){
+        console.log(fillLine);
+    }
     console.log(bottomBorder);
+
 }
 
 function genLine(text, maxLength){
@@ -70,5 +87,7 @@ function genLine(text, maxLength){
 
     return side + leftBuffer + text + rightBuffer + side;
 }
+
+consoleTextBox('hey', 'dude')
 
 module.exports = consoleTextBox;
