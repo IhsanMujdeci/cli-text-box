@@ -14,7 +14,7 @@ function repeatFill(n, fill) {
     return string
 }
 
-function cliTextBox(...textLines){
+function consoleTextBox(...textLines){
 
     // Compensate for any new lines and `back tick` syntax
     for(let t = 0; t  < textLines.length; t++){
@@ -64,4 +64,4 @@ function genLine(text, maxLength){
     return side + leftBuffer + text + rightBuffer + side
 }
 
-module.exports = cliTextBox;
+module.exports = consoleTextBox;

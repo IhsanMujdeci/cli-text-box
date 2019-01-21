@@ -1,5 +1,5 @@
 {
-  "name": "cli-text-box",
+  "name": "console-text-box",
   "version": "1.0.0",
   "description": "Simple, no dependency text box",
   "main": "index.js",
