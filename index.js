@@ -19,8 +19,16 @@ function isObject (value) {
 }
 
 /**
+ * I have some questions about ideal API design
+ * I have included the object as first arg to support using .bind() syntax to make own augmentation of this function
+ * eg. const myCustomConsoleTextBox = myCustomConsoleTextBox.bind(myOptions);
  *
- * @param {(object || string)} options
+ * Or I could include options as last argument and the same bind syntax can be achieved via closure
+ * e.g const myCustomConsoleTextBox = (...textLines) => const myCustomConsoleTextBox =(options, ...textLines);
+ *
+ * I'm open to suggestions
+ *
+ * @param {(object || string)} options optionally add options or the first string you want to print
  * @param {number} options.sideBuffer
  * @param {number} options.topBottomBuffer
  * @param {string} textLines
@@ -87,6 +95,13 @@ function genLine(text, maxLength){
     return side + leftBuffer + text + rightBuffer + side;
 }
 
-consoleTextBox('hey', 'dude')
+function examples(){
+    consoleTextBox('hey', 'dude');
+    consoleTextBox('hey', 'dude', 'im kind of long', 'i have a \n new line', `im a multi
+    line back tick`);
+    consoleTextBox({sideBuffer: 1, topBottomBuffer: 0}, 'I have options', 'Look at me mum')
+    const myBindTextBox = consoleTextBox.bind({sideBuffer: 3, topBottomBuffer: 2});
+    const myClosureTextBox = (...textLines) => consoleTextBox({sideBuffer: 3, topBottomBuffer: 2}, ...textLines)
+}
 
 module.exports = consoleTextBox;
