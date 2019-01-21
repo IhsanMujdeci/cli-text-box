@@ -14,8 +14,15 @@ function repeatFill(n, fill) {
     return string
 }
 
-function consoleTextBox(...textLines){
+function isObject (value) {
+    return value && typeof value === 'object' && value.constructor === Object;
+}
 
+function consoleTextBox(options, ...textLines){
+    if(!isObject(options)){
+        textLines = Object.values(arguments);
+        options = {};
+    }
     // Compensate for any new lines and `back tick` syntax
     for(let t = 0; t  < textLines.length; t++){
         const splitOnNewLine = textLines[t]
@@ -26,7 +33,7 @@ function consoleTextBox(...textLines){
         t += splitOnNewLine.length - 1;
     }
 
-    const sideBuffer = 3;
+    const sideBuffer = options.sideBuffer || options.sideBuffer === 0 ? options.sideBuffer : 3;
     const maxTextLength = textLines.reduce((p, c) => p > c.length ? p : c.length ,0);
     const maxLength = maxTextLength + sideBuffer * 2;
 
@@ -61,7 +68,7 @@ function genLine(text, maxLength){
         rightBuffer = repeatFill(rightBufferLength, space);
     }
 
-    return side + leftBuffer + text + rightBuffer + side
+    return side + leftBuffer + text + rightBuffer + side;
 }
 
 module.exports = consoleTextBox;
