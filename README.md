@@ -1,15 +1,15 @@
-#Console Text Box
+# Console Text Box
 Zero dependency console text box. Inspired by the npm message
 
 
-##Use
+## Use
 
 Include each line as a separate argument, a `\n` and backtick ``` ` ``` strings on 
 a new line will be considered a new line.
 
 Optionally can include options as first argument as an object and they are listed as below
 
-###Options
+### Options
 
 `sideBuffer`: [default 3] Spaces on left of right inside the box. 
 
