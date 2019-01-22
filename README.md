@@ -13,10 +13,12 @@ Optionally can include options as first argument as an object and they are liste
 
 `sideBuffer`: [default 3] Spaces on left of right inside the box. 
 
-`topBottomBuffer`: [default 3] Spaces on top and bottom inside the box. 
+`topBottomBuffer`: [default 1] Spaces on top and bottom inside the box. 
 
 ## Examples
-`    consoleTextBox('hey', 'dude');`
+`const consoleTextBox = require('console-text-box')`
+
+`consoleTextBox('hey', 'dude');`
 ```
 ╭──────────╮
 │          │
