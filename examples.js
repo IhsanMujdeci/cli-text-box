@@ -15,4 +15,4 @@ function examples(){
     myClosureTextBox('I also have options', 'I wont dis-close how i got them')
 }
 
-examples()
+examples();
