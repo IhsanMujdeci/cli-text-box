@@ -58,7 +58,7 @@ consoleTextBox({sideBuffer: 1, topBottomBuffer: 0}, 'I have options', 'Look at m
 ╰────────────────╯
 ```
 ```    
-const myBoundTextBox = consoleTextBox.bind(null, {sideBuffer: 3, topBottomBuffer: 2});
+const myBoundTextBox = consoleTextBox.bind(null, {sideBuffer: 0, topBottomBuffer: 0});
 myBoundTextBox('I have options', 'bound 2');
 ```
 ```
