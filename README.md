@@ -55,27 +55,26 @@ consoleTextBox({sideBuffer: 1, topBottomBuffer: 0}, 'I have options', 'Look at m
 ╰────────────────╯
 ```
 ```    
-const myBoundTextBox = consoleTextBox.bind({sideBuffer: 3, topBottomBuffer: 2});
+const myBoundTextBox = consoleTextBox.bind(null, {sideBuffer: 3, topBottomBuffer: 2});
 myBoundTextBox('I have options', 'bound 2');
 ```
 ```
-╭────────────────────╮
-│                    │
-│   I have options   │
-│      bound 2       │
-│                    │
-╰────────────────────╯
+╭──────────────╮
+│I have options│
+│   bound 2    │
+╰──────────────╯
 ```
 ```    
 const myClosureTextBox = (...textLines) => consoleTextBox({sideBuffer: 3, topBottomBuffer: 2}, ...textLines);
 myClosureTextBox('I also have options', 'I wont dis-close how i got them')
 ```
 ```
-╭─────────────────────────────────────╮
-│                                     │
-│                                     │
-│         I also have options         │
-│   I wont dis-close how i got them   │
-│                                     │
-│                                     │
-╰─────────────────────────────────────╯
+╭─────────────────────────────────╮
+│                                 │
+│                                 │
+│       I also have options       │
+│ I wont dis-close how i got them │
+│                                 │
+│                                 │
+╰─────────────────────────────────╯
+```
