@@ -18,6 +18,14 @@ function isObject (value) {
     return value && typeof value === 'object' && value.constructor === Object;
 }
 
+function objectValues(obj){
+    const values = [];
+    for(let o in obj){
+        values.push(obj[o])
+    }
+    return values
+}
+
 /**
  * I have some questions about ideal API design
  * I have included the object as first arg to support using .bind() syntax to make own augmentation of this function
@@ -35,7 +43,7 @@ function isObject (value) {
  */
 function consoleTextBox(options, ...textLines){
     if(!isObject(options)){
-        textLines = Object.values(arguments);
+        textLines = objectValues(arguments);
     }
     options = {
         sideBuffer:  options.sideBuffer || options.sideBuffer === 0 ? options.sideBuffer : 3,

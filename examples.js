@@ -14,3 +14,5 @@ function examples(){
     const myClosureTextBox = (...textLines) => consoleTextBox({sideBuffer: 3, topBottomBuffer: 2}, ...textLines);
     myClosureTextBox('I also have options', 'I wont dis-close how i got them')
 }
+
+examples()
