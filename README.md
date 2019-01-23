@@ -16,6 +16,9 @@ Optionally can include options as first argument as an object and they are liste
 `topBottomBuffer`: [default 1] Spaces on top and bottom inside the box. 
 
 ## Examples
+Excuse some examples as the spaces don't render properly on some browsers, the boxes should align properly when used in console.
+If you know of a way to get them to look consistent in .md format let me know :)
+ 
 `const consoleTextBox = require('console-text-box')`
 
 `consoleTextBox('hey', 'dude');`
